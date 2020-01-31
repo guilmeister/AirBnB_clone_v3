@@ -1,9 +1,9 @@
-## AirBnB Clone - Version 3
+# AirBnB Clone - Version 3
 This is the third version of the AirBnB Console Holberton School Project.
 * In This version, we utilize REST to take advantage of HTTP methods when
 being used for web API's
 * This version incorporates web application framework using `flask`
-## Updated Version: January 30, 2020
+### Updated Version: January 30, 2020
 * Previous Version: December 4, 2017
 
 
@@ -11,7 +11,7 @@ being used for web API's
 
 
 
-# AirBnB Clone - Version 1
+## AirBnB Clone - Version 1
 The console is the first segment of the AirBnB project at Holberton School that will collectively cover fundamental concepts of higher level programming. The goal of AirBnB project is to eventually deploy our server a simple copy of the AirBnB Website(HBnB). A command interpreter is created in this segment to manage objects for the AirBnB(HBnB) website.
 
 #### Functionalities of this command interpreter:
