@@ -20,14 +20,19 @@ def list_all_amenities():
 @app_views.route('/amenities/<amenity_id>', methods=['GET'],
                  strict_slashes=False)
 def get_specific_amenity(amenity_id):
-    """ Retrieves a state object, if not linked, then 404"""
+    """ Retrieves a state object, if not linked, then 404
     data = storage.all('Amenity')
     name = 'Amenity.' + amenity_id
     amenity = [v.to_dict() for k, v in data.items() if k == name]
     if len(amenity) != 1:
         abort(404)
     return jsonify(amenity[0])
-
+    """
+    data = storage.get('Amenity', amenity_id)
+    if not data:
+        abort(404)
+    else:
+        return jsonify(data.to_dict())
 
 @app_views.route('/amenities/<amenity_id>', methods=['DELETE'],
                  strict_slashes=False)
@@ -73,5 +78,5 @@ def update_amenity(amenity_id):
     for k, v in update_state_json.items():
         if k not in ignore:
             setattr(amenity, k, v)
-            storage.save()
+    storage.save()
     return jsonify(amenity.to_dict())
