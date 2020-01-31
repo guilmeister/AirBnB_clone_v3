@@ -1,4 +1,9 @@
 # AirBnB Clone - Version 3
+
+<p align="center">
+   <img src="https://i.imgur.com/JOhaZ5m.png">
+</p>
+
 This is the third version of the AirBnB Console Holberton School Project.
 * In This version, we utilize REST to take advantage of HTTP methods when
 being used for web API's
