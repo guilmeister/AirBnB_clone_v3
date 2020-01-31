@@ -10,29 +10,43 @@ from models.state import State
 
 
 @app_views.route('/amenities', methods=['GET'], strict_slashes=False)
-def list_all_amenities():
-    """ Retrieves list of all States """
+@app_views.route('/amenities/<amenity_id>', methods=['GET'])
+"""def list_all_amenities():
+     Retrieves list of all States 
     data = storage.all('Amenity')
     amenities = [v.to_dict() for k, v in data.items()]
     return jsonify(amenities)
-
-
+"""
+def list_all_amenities(amenity_id=None):
+    json_list = []
+    try:
+        if amenity_id is None:
+            for v in storage.all('Amenity', values():
+                                 json_list.append(v.to_dict())
+        else:
+                                 json_list = storage.get(
+                                     'Amenity', amenity_id).to_dict()
+        return jsonify(json_list)
+    except Exception:
+                                 abort(404)
+"""
 @app_views.route('/amenities/<amenity_id>', methods=['GET'],
                  strict_slashes=False)
 def get_specific_amenity(amenity_id):
-    """ Retrieves a state object, if not linked, then 404
+     Retrieves a state object, if not linked, then 404
     data = storage.all('Amenity')
     name = 'Amenity.' + amenity_id
     amenity = [v.to_dict() for k, v in data.items() if k == name]
     if len(amenity) != 1:
         abort(404)
     return jsonify(amenity[0])
-    """
+    
     data = storage.get('Amenity', amenity_id)
     if not data:
         abort(404)
     else:
         return jsonify(data.to_dict())
+"""
 
 @app_views.route('/amenities/<amenity_id>', methods=['DELETE'],
                  strict_slashes=False)
